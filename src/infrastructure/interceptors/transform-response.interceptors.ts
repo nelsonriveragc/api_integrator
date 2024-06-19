@@ -24,7 +24,7 @@ export class TransformResponseInterceptor<T>
   private formatSuccessResponse(data: any): any {
     return {
       success: true,
-      message: 'Request successful',
+      message: 'Solicitud exitosa',
       errors: null,
       data: data ? data : [],
     };
@@ -36,7 +36,7 @@ export class TransformResponseInterceptor<T>
         ? error.getStatus()
         : HttpStatus.INTERNAL_SERVER_ERROR;
     const message =
-      error instanceof HttpException ? error.message : 'Internal server error';
+      error instanceof HttpException ? error.message : 'Error interno en el servidor';
     const errors = this.formatErrors(error);
 
     return throwError(

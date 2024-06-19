@@ -1,9 +1,10 @@
 version: "3.8"
 services:
-  app:
+  api:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile      
+    image: api_integrator:latest # Nombre de la imagen
     ports:
       - "${PORT}:${PORT}"
     volumes:
