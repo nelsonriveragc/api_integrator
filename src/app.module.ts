@@ -3,9 +3,10 @@ import { ConfigModule } from '@nestjs/config';
 import configuration from './config/configuration';
 import { HttpModule } from '@nestjs/axios';
 import { CqrsModule } from '@nestjs/cqrs';
-import handlers_application from './application/handlers-export-application';
-import controller_integrator from './infrastructure/controller-export-infrastructure';
-import services_integrator from './infrastructure/services-export-infrastructure';
+import handlers_application from './aplication/handlers-export-application';
+import controller_integrator from './infracstructure/controller-export-infrastructure';
+import services_integrator from './infracstructure/services-export-infrastructure';
+import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import services_integrator from './infrastructure/services-export-infrastructure
     }),
     HttpModule,
     CqrsModule,
+    PrismaModule,
   ],
   controllers: [...controller_integrator],
   providers: [...handlers_application, ...services_integrator],
