@@ -6,8 +6,6 @@ services:
     image: api_integrator:latest # Nombre de la imagen
     ports:
       - "${PORT}:${PORT}"
-    depends_on:
-      - badger
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
